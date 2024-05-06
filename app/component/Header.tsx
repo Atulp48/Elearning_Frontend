@@ -74,7 +74,7 @@ const Header: FC<Props> = ({ activeItem, setOpen, route, open, setRoute }) => {
             setOpenSidebar(false);
         }
     };
-    console.log(user);
+    // console.log(user);
     return (
         <div className='w-full relative'>
             <div className={`${active

@@ -260,7 +260,7 @@ const Sidebar = () => {
             </Typography>
 
             <Item
-              title="Hero"
+              title="Banner"
               to="/admin/hero"
               icon={<WebIcon />}
               selected={selected}
