@@ -207,7 +207,7 @@ const EditFaq = (props: Props) => {
     refetchOnMountOrArgChange: true,
   });
 
-  console.log(data);
+  // console.log(data);
 
   const [editLayout, { isSuccess, error }] = useEditLayoutMutation();
   const [question, setQuestion] = useState<any[]>([]);

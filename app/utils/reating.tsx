@@ -6,7 +6,7 @@ type Props = {
   rating: number;
 };
 
-const reating: FC<Props> = ({ rating }) => {
+const Reating: FC<Props> = ({ rating }) => {
   const stars = [];
   for (let i = 0; i <=5; i++) {
     if (i <= rating) {
@@ -41,4 +41,4 @@ const reating: FC<Props> = ({ rating }) => {
   return <div className="flex mt-1 ml-2 800px:ml-0">{stars}</div>;
 };
 
-export default reating;
+export default Reating;

@@ -72,6 +72,10 @@ const CourseDetailsPage: FC<Props> = ({ id }) => {
               data={data.course}
               stripePromise={stripePromish}
               clientSecret={clientSectret}
+              route={route}
+              setRoute={setRoute}
+              open={open}
+              setOpen={setOpen}
             />
           )}
           <Footer />

@@ -14,7 +14,7 @@ const Courses = (props: Props) => {
     }
   }, [data]);
 
-  console.log(course)
+  // console.log(course)
 
   return (
     <div>
