@@ -20,8 +20,7 @@ type Props = {
 };
 
 const Allusers: FC<Props> = ({ isTeam }) => {
-  const [deleteUser, { isSuccess, error }] =
-    useDeleteUserMutation();
+  const [deleteUser, { isSuccess, error }] = useDeleteUserMutation();
   const [open, setOpen] = useState(false);
   const [courseId, setCourseId] = useState("");
   const { isLoading, data, refetch } = useGetALLusersQuery(
@@ -68,7 +67,10 @@ const Allusers: FC<Props> = ({ isTeam }) => {
         return (
           <>
             <a href={`mailto:${params.row.email}`}>
-              <AiOutlineMail size={20} className="dark:text-white text-black my-4" />
+              <AiOutlineMail
+                size={20}
+                className="dark:text-white text-black my-4"
+              />
             </a>
           </>
         );
@@ -111,23 +113,23 @@ const Allusers: FC<Props> = ({ isTeam }) => {
       });
   }
 
-    const handleDelete = async () => {
-      await deleteUser(courseId);
-    };
+  const handleDelete = async () => {
+    await deleteUser(courseId);
+  };
 
-    useEffect(() => {
-      if (isSuccess) {
-        refetch();
-        setOpen(false);
-        toast.success("User deleted successfully");
+  useEffect(() => {
+    if (isSuccess) {
+      refetch();
+      setOpen(false);
+      toast.success("User deleted successfully");
+    }
+    if (error) {
+      if ("data" in error) {
+        const errorMessage = error as any;
+        toast.error(errorMessage.data.message);
       }
-      if (error) {
-        if ("data" in error) {
-          const errorMessage = error as any;
-          toast.error(errorMessage.data.message);
-        }
-      }
-    }, [isSuccess, error]);
+    }
+  }, [isSuccess, error]);
 
   return (
     <div className="mt-[120px]">

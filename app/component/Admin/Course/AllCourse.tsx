@@ -22,7 +22,9 @@ const AllCourses: FC<Props> = () => {
   const [courseId, setCourseId] = useState("");
   const { isLoading, data, refetch } = useGetAllcourseQuery(
     {},
-    { refetchOnMountOrArgChange: true }
+    {
+      refetchOnMountOrArgChange: true,
+    }
   );
 
   const { theme, setTheme } = useTheme();

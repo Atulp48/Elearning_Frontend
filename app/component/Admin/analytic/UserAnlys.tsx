@@ -21,28 +21,28 @@ type Props = {
 const UserAnalytics: FC<Props> = ({ isDashboard }) => {
   const { data, isLoading } = useGetUserAnalyticQuery({});
 
-//   const analyticsData = [
-//     { name: "jan 2023", count: 500 },
-//     { name: "feb 2023", count: 700 },
-//     { name: "mar 2023", count: 200 },
-//     { name: "apr 2023", count: 500 },
-//     { name: "may 2023", count: 800 },
-//     { name: "Jun 2023", count: 400 },
-//     { name: "Jul 2023", count: 300 },
-//     { name: "Aug 2023", count: 565 },
-//     { name: "Sept 2023", count: 855 },
-//     { name: "Oct 2023", count: 156 },
-//     { name: "Nov 2023", count: 258 },
-//     { name: "Dec 2023", count: 800 },
-//   ];
+  //   const analyticsData = [
+  //     { name: "jan 2023", count: 500 },
+  //     { name: "feb 2023", count: 700 },
+  //     { name: "mar 2023", count: 200 },
+  //     { name: "apr 2023", count: 500 },
+  //     { name: "may 2023", count: 800 },
+  //     { name: "Jun 2023", count: 400 },
+  //     { name: "Jul 2023", count: 300 },
+  //     { name: "Aug 2023", count: 565 },
+  //     { name: "Sept 2023", count: 855 },
+  //     { name: "Oct 2023", count: 156 },
+  //     { name: "Nov 2023", count: 258 },
+  //     { name: "Dec 2023", count: 800 },
+  //   ];
 
-    const analyticsData: any = [];
+  const analyticsData: any = [];
 
-    data &&
-      data.users.last12Months.forEach((item: any) => {
-        analyticsData.push({ name: item.month, count: item.count });
-      });
-  
+  data &&
+    data.users.last12Months.forEach((item: any) => {
+      analyticsData.push({ name: item.month, count: item.count });
+    });
+
   return (
     <>
       {isLoading ? (

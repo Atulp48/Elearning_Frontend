@@ -31,7 +31,7 @@ const Faq = (props: Props) => {
       ) : (
         <div className="w-[90%] 800px:w-[80%] m-auto mt-[120px]">
           <h1 className={`${styles.title} 800px:text-[40px]`}>
-            Frequently asked questions
+            Frequently asked <span className="text-gradient text-green-400">Questions</span>
           </h1>
           <div className="mt-12">
             <dl className="space-y-8">

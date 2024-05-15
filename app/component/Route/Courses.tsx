@@ -7,10 +7,9 @@ type Props = {};
 const Courses = (props: Props) => {
   const { data, isLoading } = useGetUserCoursesQuery({});
   const [course, setCourse] = useState<any[]>([]);
-;
   useEffect(() => {
-    if(data){
-        setCourse(data.courses);
+    if (data) {
+      setCourse(data.courses);
     }
   }, [data]);
 
@@ -21,7 +20,7 @@ const Courses = (props: Props) => {
       <div className={`w-[90%] 800px:w-[80%] m-auto`}>
         <h1 className="Poppins text-[25px] leading-[35px] sm:text-4xl dark:text-white 800px:!leading-[60px] text-[#000] font-[700] tracking-tight">
           Expand Your Carrier
-          <span className="text-gradient">Opportunity</span>
+          <span className="text-gradient"> Opportunity</span>
           <br />
           Opportunity with us
         </h1>

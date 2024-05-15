@@ -29,8 +29,6 @@ const CourseDetailsPage: FC<Props> = ({ id }) => {
   // console.log(paymentIntentData?.client_secret)
   // console.log(dataPublish?.publishablekey)
 
-
-
   useEffect(() => {
     if (dataPublish) {
       const publishableKey = dataPublish?.publishablekey;

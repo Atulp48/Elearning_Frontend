@@ -8,6 +8,12 @@ import { Providers } from "./provider";
 import { SessionProvider } from "next-auth/react";
 import { useLoaduserQuery } from "@/redux/features/api/apiSlice";
 import Loader from "./component/Loader/Loader";
+import socketIO from "socket.io-client";
+import dotenv from "dotenv";
+dotenv.config();
+import { useEffect } from "react";
+const ENDPOINT = process.env.SOCKET_URL || "";
+const socketId = socketIO(ENDPOINT, { transports: ["websocket"] });
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -51,5 +57,10 @@ export default function RootLayout({
 
 const Custom: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const { isLoading } = useLoaduserQuery({});
+
+  useEffect(() => {
+    socketId.on("connection", () => {});
+  }, []);
+
   return <>{isLoading ? <Loader /> : <>{children}</>}</>;
 };

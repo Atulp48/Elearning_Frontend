@@ -1,7 +1,6 @@
 import React, { FC, useState, useEffect } from 'react'
 import { styles } from "../../../app/styles/style"
 import { AiOutlineCamera } from "react-icons/ai"
-import avatarIcon from "../../../public/assets/client-1.jpg"
 import Image from "next/image"
 import { useUpdateAvatarMutation, useUpdataUserNameMutation } from '@/redux/features/user/userApi'
 import { useLoaduserQuery } from '@/redux/features/api/apiSlice'
@@ -68,7 +67,7 @@ const Profileinfo: FC<Props> = ({ avatar, user }) => {
             <div className='w-full flex justify-center'>
                 <div className='relative'>
                     <Image
-                        src={user.avatar || avatar ? user.avatar.url || avatar : avatarIcon}
+                        src={user.avatar || avatar ? user.avatar.url || avatar : "https://res.cloudinary.com/dvdh3ihsv/image/upload/v1715780591/z8xntjffog8pjqnppvzk.jpg"}
                         alt=""
                         width={120}
                         height={120}

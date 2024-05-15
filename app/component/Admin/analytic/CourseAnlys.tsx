@@ -17,24 +17,22 @@ type Props = {};
 const CourseAnlys = (props: Props) => {
   const { data, isLoading } = useGetCourseAnalyticQuery({});
 
+  const analyticData: any = [];
 
+  data &&
+    data.courses.last12Months.forEach((item: any) => {
+      analyticData.push({ name: item.month, uv: item.count });
+    });
 
-    const analyticData: any = [];
-
-    data &&
-      data.courses.last12Months.forEach((item: any) => {
-        analyticData.push({ name: item.month, uv: item.count });
-      });
-
-      //   const analyticData = [
-//     { name: "Jun 2023", uv: 3 },
-//     { name: "July 2023", uv: 2 },
-//     { name: "August 2023", uv: 5 },
-//     { name: "Sept 2023", uv: 8 },
-//     { name: "Oct 2023", uv: 1 },
-//     { name: "Nov 2023", uv: 2 },
-//     { name: "Dec 2023", uv: 8 },
-//   ];
+  //   const analyticData = [
+  //     { name: "Jun 2023", uv: 3 },
+  //     { name: "July 2023", uv: 2 },
+  //     { name: "August 2023", uv: 5 },
+  //     { name: "Sept 2023", uv: 8 },
+  //     { name: "Oct 2023", uv: 1 },
+  //     { name: "Nov 2023", uv: 2 },
+  //     { name: "Dec 2023", uv: 8 },
+  //   ];
   const minVal = 0;
   return (
     <>

@@ -2,8 +2,8 @@
 
 const nextConfig = {
   images: {
-    domains: ["res.cloudinary.com","source.unsplash.com"],
-  },
+    domains: ["res.cloudinary.com"],
+  }
 };
 
 // const nextConfig = {

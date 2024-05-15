@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from "react";
+import React, { FC, useEffect, useReducer, useState } from "react";
 import CoursePlayer from "../Admin/Course/CoursePlayer";
 import { styles } from "@/app/styles/style";
 import Answer from "../../component/Course/Anwer";
@@ -11,7 +11,6 @@ import {
   AiOutlineStar,
 } from "react-icons/ai";
 import Image from "next/image";
-import client from "../../../public/assets/client-1.jpg";
 import {
   useAddAnswerMutation,
   useAddQuestionMutation,
@@ -22,6 +21,9 @@ import {
 import toast from "react-hot-toast";
 import { format } from "timeago.js";
 import { VscVerifiedFilled } from "react-icons/vsc";
+import socketIO from "socket.io-client";
+const ENDPOINT = process.env.SOCKET_URL || "";
+const socketId = socketIO(ENDPOINT, { transports: ["websocket"] });
 
 type Props = {
   data: any;
@@ -96,6 +98,7 @@ const CourseContentVideo: FC<Props> = ({
         question: Question,
         contentId: data[activeVideo]._id,
       });
+      console.log("hello world");
     }
   };
 
@@ -114,11 +117,23 @@ const CourseContentVideo: FC<Props> = ({
       setQuestion("");
       refetch();
       toast.success("Question added successfully");
+      socketId.emit("notification", {
+        title: "new Question revieved",
+        message: `you have a new Question form ${data[activeVideo].title}`,
+        userId: user._id,
+      });
     }
     if (AnsSuccess) {
       setAnswer("");
       refetch();
       toast.success("Answer added successfully");
+      if (user.role !== "admin") {
+        socketId.emit("notification", {
+          title: "new Answer recieved",
+          message: `you have a new Anwer form ${data[activeVideo].title}`,
+          userId: user._id,
+        });
+      }
     }
 
     if (ReviewSuccess) {
@@ -126,12 +141,21 @@ const CourseContentVideo: FC<Props> = ({
       setRating(0);
       courseRetch();
       toast.success("Reveiw added successfully");
+      socketId.emit("notification", {
+        title: "new Review recvieved",
+        message: `you have a new Review form ${data[activeVideo].title}`,
+        userId: user._id,
+      });
     }
     if (ReplySuccess) {
       setReply("");
       courseRetch();
-
       toast.success("Reply added successfully");
+      socketId.emit("notification", {
+        title: "new Reply recvieved",
+        message: `you have a new Reply form ${data[activeVideo].title}`,
+        userId: user._id,
+      });
     }
 
     if (error) {
@@ -262,7 +286,11 @@ const CourseContentVideo: FC<Props> = ({
         <>
           <div className="flex w-full">
             <Image
-              src={user.avatar ? user.avatar.url : client}
+              src={
+                user.avatar
+                  ? user.avatar.url
+                  : "https://res.cloudinary.com/dvdh3ihsv/image/upload/v1715780591/z8xntjffog8pjqnppvzk.jpg"
+              }
               width={50}
               height={50}
               alt=""
@@ -305,6 +333,7 @@ const CourseContentVideo: FC<Props> = ({
               setQuestionId={SetQuestionId}
               isLoading={isLoading}
               AnsLoading={AnsLoading}
+              questionId={questionId}
             />
           </div>
         </>
@@ -335,7 +364,11 @@ const CourseContentVideo: FC<Props> = ({
               <>
                 <div className="flex w-full">
                   <Image
-                    src={user.avatar ? user.avatar.url : client}
+                    src={
+                      user.avatar
+                        ? user.avatar.url
+                        : "https://res.cloudinary.com/dvdh3ihsv/image/upload/v1715780591/z8xntjffog8pjqnppvzk.jpg"
+                    }
                     width={50}
                     height={50}
                     alt=""
@@ -403,7 +436,11 @@ const CourseContentVideo: FC<Props> = ({
                   >
                     <div className="w-full flex">
                       <Image
-                        src={user.avatar ? user.avatar.url : client}
+                        src={
+                          user.avatar
+                            ? user.avatar.url
+                            : "https://res.cloudinary.com/dvdh3ihsv/image/upload/v1715780591/z8xntjffog8pjqnppvzk.jpg"
+                        }
                         width={50}
                         height={50}
                         alt=""
@@ -418,39 +455,46 @@ const CourseContentVideo: FC<Props> = ({
                         </small>
                       </div>
                     </div>
-                    {user.role === "admin" && (
-                      <span
-                        className={`${styles.label} !ml-11 cursor-pointer`}
-                        onClick={() => {
-                          setIsreviewReply(true), setReviewId(item._id);
-                        }}
-                      >
-                        Add Reply
-                      </span>
-                    )}
-                    {isReviewreply && (
-                      <div className="w-full flex relative">
-                        <input
-                          type="text"
-                          placeholder="enter your Relply"
-                          value={reply}
-                          onChange={(e) => setReply(e.target.value)}
-                          className="block 800px:ml-12 mt-2 outline-none bg-transparent border-b border-black dark:border-[#fff] p-[5px] w-[95%]"
-                        />
-                        <button
-                          type="submit"
-                          className="absolute right-0 bottom-1"
-                          onClick={handleReply}
+                    {user.role === "admin" &&
+                      item?.commentReplies.length === 0 && (
+                        <span
+                          className={`${styles.label} !ml-11 cursor-pointer`}
+                          onClick={() => {
+                            setIsreviewReply(true), setReviewId(item._id);
+                          }}
                         >
-                          Submit
-                        </button>
-                      </div>
-                    )}
+                          Add Reply
+                        </span>
+                      )}
+                    {isReviewreply &&
+                      reviewId ===
+                        item._id(
+                          <div className="w-full flex relative">
+                            <input
+                              type="text"
+                              placeholder="enter your Relply"
+                              value={reply}
+                              onChange={(e) => setReply(e.target.value)}
+                              className="block 800px:ml-12 mt-2 outline-none bg-transparent border-b border-black dark:border-[#fff] p-[5px] w-[95%]"
+                            />
+                            <button
+                              type="submit"
+                              className="absolute right-0 bottom-1"
+                              onClick={handleReply}
+                            >
+                              Submit
+                            </button>
+                          </div>
+                        )}
                     {item.commentReplies.map((i: any, index: number) => (
                       <div key={index} className="w-full flex 800px:ml-16 my-5">
                         <div className="w-[50px] h-[50px]">
                           <Image
-                            src={i.user.avatar ? i.user.avatar.url : client}
+                            src={
+                              i.user.avatar
+                                ? i.user.avatar.url
+                                : "https://res.cloudinary.com/dvdh3ihsv/image/upload/v1715780591/z8xntjffog8pjqnppvzk.jpg"
+                            }
                             width={50}
                             height={50}
                             alt=""

@@ -4,7 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { BiSearch } from "react-icons/bi";
 import Loader from "../Loader/Loader";
-import StaticGenerationSearchParamsBailoutProvider from "next/dist/client/components/static-generation-searchparams-bailout-provider";
 import { useRouter } from "next/navigation";
 
 type Props = {};
@@ -75,18 +74,24 @@ const Hero: FC<Props> = (props) => {
             <br />
             <div className="1500px:w-[55%] 1100px:w-[78%] w-[90%] flex items-center">
               <Image
-                src={require("../../../public/assets/client-2.jpg")}
+                src="https://res.cloudinary.com/dvdh3ihsv/image/upload/v1715780591/z8xntjffog8pjqnppvzk.jpg"
+                width={50}
+                height={50}
                 alt="client"
                 className="rounded-full border-white border-2 bg-blue-200"
               />
               <Image
-                src={require("../../../public/assets/client-2.jpg")}
+                src="https://res.cloudinary.com/dvdh3ihsv/image/upload/v1715780591/z8xntjffog8pjqnppvzk.jpg"
                 alt="client"
+                width={50}
+                height={50}
                 className="rounded-full ml-[-30px] border-white border-2 bg-yellow-200"
               />
               <Image
-                src={require("../../../public/assets/client-2.jpg")}
+                src="https://res.cloudinary.com/dvdh3ihsv/image/upload/v1715780591/z8xntjffog8pjqnppvzk.jpg"
                 alt="client"
+                width={50}
+                height={50}
                 className="rounded-full ml-[-30px] border-white border-2 bg-green-200"
               />
               <p className="font-Josefin dark:text-[#edfff4] text-[#000000b3] 1000px:pl-3 text-[18px] font-[600]">

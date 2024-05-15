@@ -11,6 +11,7 @@ type Props = {
   setQuestionId: any;
   isLoading:boolean,
   AnsLoading:boolean
+  questionId?:any;
 };
 
 const Anwer: FC<Props> = ({
@@ -22,6 +23,7 @@ const Anwer: FC<Props> = ({
   user,
   handleAnswer,
   isLoading,
+  questionId,
   AnsLoading
 }) => {
 //   console.log("answersection");
@@ -42,6 +44,7 @@ const Anwer: FC<Props> = ({
               item={item}
               isLoading={isLoading}
               AnsLoading={AnsLoading}
+              questionId={questionId}
             />
         //   <div key={index}> {item.question}</div>
         ))}

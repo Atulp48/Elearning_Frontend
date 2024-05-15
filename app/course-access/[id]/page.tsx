@@ -32,7 +32,7 @@ const Page: FC<Props> = ({ params }) => {
         {
             isLoading?(<Loader/>):(
                 <div>
-                    <CourseContent user={data.user} id={id}/>
+                    <CourseContent user={data?.user} id={id}/>
                 </div>
             )
         }

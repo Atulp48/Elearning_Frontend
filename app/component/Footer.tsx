@@ -6,7 +6,7 @@ type Props = {};
 const Footer = (props: Props) => {
   return (
     <footer>
-      <div className="border-[#000000e] dark:border-[#ffffff1e] bg-slate-500">
+      <div className="border-[#000000e] dark:border-[#ffffff1e] bg-emerald-950">
         <br />
         <div className="w-[95%] 800px:w-full 800px:max-w-[85%] mx-auto px-2 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-4">
@@ -25,7 +25,7 @@ const Footer = (props: Props) => {
                 </li>
                 <li>
                   <Link
-                    href="/pravicy policy "
+                    href="/policy "
                     className="text-base text-black dark:text-gray-300 dark:hover:text-white"
                   >
                     Pravicy Policy
@@ -39,30 +39,14 @@ const Footer = (props: Props) => {
                     FAQ
                   </Link>
                 </li>
-                <li>
-                  <Link
-                    href="/about "
-                    className="text-base text-black dark:text-gray-300 dark:hover:text-white"
-                  >
-                    Our Story
-                  </Link>
-                </li>
               </ul>
             </div>
 
             <div className="space-y-3">
               <h3 className="text-[20px] font-[600] text-black dark:text-gray-300 dark:hover:text-white">
-                Qucick Links
+                Quick Links
               </h3>
               <ul className="space-y-4">
-                <li>
-                  <Link
-                    href="/course "
-                    className="text-base text-black dark:text-gray-300 dark:hover:text-white"
-                  >
-                    Courses
-                  </Link>
-                </li>
                 <li>
                   <Link
                     href="/profile "
@@ -73,7 +57,7 @@ const Footer = (props: Props) => {
                 </li>
                 <li>
                   <Link
-                    href="/course-dashboard "
+                    href="/courses"
                     className="text-base text-black dark:text-gray-300 dark:hover:text-white"
                   >
                     Course Dashboard
@@ -89,7 +73,7 @@ const Footer = (props: Props) => {
               <ul className="space-y-4">
                 <li>
                   <Link
-                    href="https://www.youtube.com/watch?v=dKw7bdk6hQ8&ab_channel=OggyHindi-%E0%A4%B9%E0%A4%BF%E0%A4%A8%E0%A5%8D%E0%A4%A6%E0%A5%80 "
+                    href="https://www.youtube.com"
                     className="text-base text-black dark:text-gray-300 dark:hover:text-white"
                   >
                     You Tube
@@ -97,18 +81,18 @@ const Footer = (props: Props) => {
                 </li>
                 <li>
                   <Link
-                    href="https://www.youtube.com/watch?v=dKw7bdk6hQ8&ab_channel=OggyHindi-%E0%A4%B9%E0%A4%BF%E0%A4%A8%E0%A5%8D%E0%A4%A6%E0%A5%80 "
+                    href="https://www.linkedin.com/in/atul-kumar-patel-997337226/"
                     className="text-base text-black dark:text-gray-300 dark:hover:text-white"
                   >
-                    Face Book
+                    Linked In
                   </Link>
                 </li>
                 <li>
                   <Link
-                    href="https://www.youtube.com/watch?v=dKw7bdk6hQ8&ab_channel=OggyHindi-%E0%A4%B9%E0%A4%BF%E0%A4%A8%E0%A5%8D%E0%A4%A6%E0%A5%80 "
+                    href="https://www.facebook.com/"
                     className="text-base text-black dark:text-gray-300 dark:hover:text-white"
                   >
-                    Insta Gram
+                    Face Book
                   </Link>
                 </li>
               </ul>
@@ -125,7 +109,7 @@ const Footer = (props: Props) => {
                 Address: electric Plole ke peeche,purana talab,prayagraj
               </p>
               <p className="text-base text-black dark:text-gray-300 dark:hover:text-white pb-2">
-                Mail Us: dayaram@gmail.com
+                Mail US: Jack@gmail.com
               </p>
             </div>
           </div>

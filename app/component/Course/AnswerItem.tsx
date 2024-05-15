@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { format } from "timeago.js";
 import Image from "next/image";
-import client from "../../../public/assets/client-1.jpg";
 import { BiMessage } from "react-icons/bi";
 import { VscVerifiedFilled } from "react-icons/vsc";
 
@@ -16,6 +15,7 @@ const AnswerItem = ({
   item,
   isLoading,
   AnsLoading,
+  questionId,
 }: any) => {
   const [activeReplies, setActiveReplies] = useState(false);
 
@@ -31,7 +31,7 @@ const AnswerItem = ({
             </div>
           </div> */}
           <Image
-            src={user.avatar ? user.avatar.url : client}
+            src={user.avatar ? user.avatar.url : "https://res.cloudinary.com/dvdh3ihsv/image/upload/v1715780591/z8xntjffog8pjqnppvzk.jpg"}
             width={50}
             height={50}
             alt=""
@@ -68,7 +68,7 @@ const AnswerItem = ({
           </span>
         </div>
 
-        {activeReplies && (
+        {activeReplies && questionId === item._id && (
           <>
             {item.questionReplies.map((item: any, index: number) => (
               <div
@@ -77,7 +77,7 @@ const AnswerItem = ({
               >
                 <div>
                   <Image
-                    src={user.avatar ? user.avatar.url : client}
+                    src={user.avatar ? user.avatar.url : "https://res.cloudinary.com/dvdh3ihsv/image/upload/v1715780591/z8xntjffog8pjqnppvzk.jpg"}
                     width={50}
                     height={50}
                     alt=""

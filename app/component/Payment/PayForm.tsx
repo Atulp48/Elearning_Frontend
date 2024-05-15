@@ -10,14 +10,20 @@ import { useCreateOrderMutation } from "@/redux/features/orders/ordersApi";
 import { redirect } from "next/navigation";
 import toast from "react-hot-toast";
 import { styles } from "@/app/styles/style";
+import socketIO from "socket.io-client";
+import dotenv from "dotenv";
+dotenv.config();
+const ENDPOINT = process.env.SOCKET_URL || "";
+const socketId = socketIO(ENDPOINT, { transports: ["websocket"] });
 
 type Props = {
   open?: boolean;
   setOpen: any;
   data: any;
+  user: any;
 };
 
-const PayForm: FC<Props> = ({ setOpen, data }) => {
+const PayForm: FC<Props> = ({ setOpen, data, user }) => {
   const stripe = useStripe();
   const elements = useElements();
   const [message, setMessage] = useState<any>("");
@@ -53,6 +59,11 @@ const PayForm: FC<Props> = ({ setOpen, data }) => {
   useEffect(() => {
     if (orderData) {
       setLoadUser(true);
+      socketId.emit("notification", {
+        title: "new order revieved",
+        message: `you have a new order form ${data.course.name}`,
+        userId: user._id,
+      });
       toast.success("course purchase successfully");
       redirect(`/course-access/${data._id}`);
     }
@@ -113,7 +124,7 @@ export default PayForm;
 //   const [message, setMessage] = useState<any>("");
 //   const [createOrder, { data: orderData, error }] = useCreateOrderMutation();
 //   const [loadUser, setLoadUser] = useState(false);
-//   const {} = useLoaduserQuery({ skip: loadUser ? false : true });
+//   const {} = useLoaduseru({ skip: loadUser ? false : true });
 //   const [isLoading, setIsLoading] = useState(false);
 
 //   console.log(orderData);

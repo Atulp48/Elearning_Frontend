@@ -8,70 +8,70 @@ type Props = {};
 export const reviews = [
   {
     name: "John Doe",
-    avatar: "https://source.unsplash.com/featured/?nature",
+    avatar: "https://res.cloudinary.com/dvdh3ihsv/image/upload/v1715780591/z8xntjffog8pjqnppvzk.jpg",
     profession: "Web Developer",
     comment: "Great service! Highly recommended Engaging and comprehensive course material, presented in an accessible format. The instructor's expertise and clear explanations enhanced my understanding, making complex topics manageable. The interactive assignments and practical exercises provided valuable hands-on experience. Overall, a rewarding learning journey that exceeded my expectations.",
     ratings: 4,
   },
   {
     name: "Alice Smith",
-    avatar: "https://source.unsplash.com/featured/?nature",
+    avatar: "https://res.cloudinary.com/dvdh3ihsv/image/upload/v1715780591/z8xntjffog8pjqnppvzk.jpg",
     profession: "Graphic Designer",
     comment: "Fantastic experience. Will definitely use again Engaging and comprehensive course material, presented in an accessible format. The instructor's expertise and clear explanations enhanced my understanding, making complex topics manageable. The interactive assignments and practical exercises provided valuable hands-on experience. Overall, a rewarding learning journey that exceeded my expectations..",
     ratings: 5,
   },
   {
     name: "Michael Johnson",
-    avatar: "https://source.unsplash.com/featured/?nature",
+    avatar: "https://res.cloudinary.com/dvdh3ihsv/image/upload/v1715780591/z8xntjffog8pjqnppvzk.jpg",
     profession: "Software Engineer",
     comment: "Very professional and efficient Engaging and comprehensive course material, presented in an accessible format. The instructor's expertise and clear explanations enhanced my understanding, making complex topics manageable. The interactive assignments and practical exercises provided valuable hands-on experience. Overall, a rewarding learning journey that exceeded my expectations..",
     ratings: 3,
   },
   {
     name: "Emily Brown",
-    avatar: "https://source.unsplash.com/featured/?nature",
+    avatar: "https://res.cloudinary.com/dvdh3ihsv/image/upload/v1715780591/z8xntjffog8pjqnppvzk.jpg",
     profession: "Marketing Manager",
     comment: "Outstanding service! Will recommend to friends Engaging and comprehensive course material, presented in an accessible format. The instructor's expertise and clear explanations enhanced my understanding, a rewarding learning journey that exceeded my expectations..",
     ratings: 5,
   },
   {
     name: "David Wilson",
-    avatar: "https://source.unsplash.com/featured/?nature",
+    avatar: "https://res.cloudinary.com/dvdh3ihsv/image/upload/v1715780591/z8xntjffog8pjqnppvzk.jpg",
     profession: "Product Manager",
     comment: "Outstanding service! Will recommend to friends Engaging and comprehensive course material, presented in an accessible format. The instructor's expertise and clear explanations enhanced my understanding, making complex topics manageable. The interactive assignments and practical exercises provided valuable hands-on experience. Overall, a rewarding learning journey that exceeded my expectations..",
     ratings: 4,
   },
   {
     name: "Sophia Taylor",
-    avatar: "https://source.unsplash.com/featured/?nature",
+    avatar: "https://res.cloudinary.com/dvdh3ihsv/image/upload/v1715780591/z8xntjffog8pjqnppvzk.jpg",
     profession: "UI/UX Designer",
     comment: "Impressed with the quality of work Engaging and comprehensive course material, presented in an accessible format. The instructor's expertise and clear explanations enhanced my understanding, making complex topics manageable.",
     ratings: 4,
   },
   {
     name: "Oliver Martinez",
-    avatar: "https://source.unsplash.com/featured/?nature",
+    avatar: "https://res.cloudinary.com/dvdh3ihsv/image/upload/v1715780591/z8xntjffog8pjqnppvzk.jpg",
     profession: "Data Analyst",
     comment: "Great attention to detail. Very satisfied Engaging and comprehensive course material, presented in an accessible format. The instructor's expertise and clear explanations enhanced my understanding, making complex topics manageable. The interactive assignments and practical exercises provided valuable hands-on experience. Overall, a rewarding learning journey that exceeded my expectations..",
     ratings: 4,
   },
   {
     name: "Emma Harris",
-    avatar: "https://source.unsplash.com/featured/?nature",
+    avatar: "https://res.cloudinary.com/dvdh3ihsv/image/upload/v1715780591/z8xntjffog8pjqnppvzk.jpg",
     profession: "Content Writer",
     comment: "Wonderful experience from start to finish Engaging and comprehensive course material, presented in an accessible format. The instructor's expertise and clear explanations enhanced my understanding, making complex topics manageable. The interactive assignments and practical exercises provided valuable hands-on experience. Overall, a rewarding learning journey that exceeded my expectations..",
     ratings: 2,
   },
   {
     name: "Daniel Clark",
-    avatar: "https://source.unsplash.com/featured/?nature",
+    avatar: "https://res.cloudinary.com/dvdh3ihsv/image/upload/v1715780591/z8xntjffog8pjqnppvzk.jpg",
     profession: "Project Manager",
     comment: "Professional and courteous. Will use again Engaging and comprehensive course material, presented in an accessible format. The instructor's expertise and clear explanations enhanced my understanding, making complex topics manageable. The interactive assignments and practical exercises provided valuable hands-on experience. Overall, a rewarding learning journey that exceeded my expectations..",
     ratings: 5,
   },
   {
     name: "Isabella Lee",
-    avatar: "https://source.unsplash.com/featured/?nature",
+    avatar: "https://res.cloudinary.com/dvdh3ihsv/image/upload/v1715780591/z8xntjffog8pjqnppvzk.jpg",
     profession: "Financial Analyst",
     comment: "Highly recommended. Exceeded expectations Engaging and comprehensive course material, presented in an accessible format. The instructor's expertise and clear explanations enhanced my understanding, making complex topics manageable. The interactive assignments and practical exercises provided valuable hands-on experience. Overall, a rewarding learning journey that exceeded my expectations..",
     ratings: 5,
@@ -84,7 +84,7 @@ const Reviews = (props: Props) => {
       <div className="w-full 800px:flex items-center">
         <div className="800px:w-[50%] w-full p-4">
           <Image
-            src={require("../../../public/assets/new imaga.jpg")}
+            src="https://res.cloudinary.com/dvdh3ihsv/image/upload/v1715780564/fwjenk64brnx38gfxypj.jpg"
             width={500}
             height={600}
             className="rounded-lg "

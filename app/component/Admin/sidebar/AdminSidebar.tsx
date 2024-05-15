@@ -18,7 +18,6 @@ import SettingsIcon from "@mui/icons-material/Settings";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 import { ProSidebar, Menu, MenuItem } from "react-pro-sidebar";
 import "react-pro-sidebar/dist/css/styles.css";
-import avatarDefault from "../../../../public/assets/client-1.jpg";
 import Link from "next/link";
 import Image from "next/image";
 import { useTheme } from "next-themes";
@@ -88,11 +87,11 @@ const Sidebar = () => {
     return null;
   }
 
-  const logoutHandler = async () => {
-    setLogOut(true);
-    await signOut();
-     //    redirect("/")
-  };
+  // const logoutHandler = async () => {
+  //   setLogOut(true);
+  //   await signOut();
+  //    //    redirect("/")
+  // };
 
   return (
     <Box
@@ -170,7 +169,7 @@ const Sidebar = () => {
                   alt="profile-picture"
                   width={100}
                   height={100}
-                  src={user.avatar ? user.avatar.url : avatarDefault}
+                  src={user.avatar ? user.avatar.url : "https://res.cloudinary.com/dvdh3ihsv/image/upload/v1715780591/z8xntjffog8pjqnppvzk.jpg"}
                   style={{
                     cursor: "pointer",
                     borderRadius: "50%",
@@ -334,15 +333,6 @@ const Sidebar = () => {
             >
               {!isCollapsed && "Extras"}
             </Typography>
-            {/* 
-                            <Item
-                                title='settings'
-                                to="/admin/settings"
-                                icon={<SettingsIcon />}
-                                selected={selected}
-                                setSelected={setSelected}
-                            /> */}
-            {/* <div onClick={logoutHandler}> */}
               <Item
                 title="Exit"
                 to="/profile"

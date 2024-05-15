@@ -19,7 +19,9 @@ type Props = {
 const EditCourse: FC<Props> = ({ id }) => {
   const { data, refetch } = useGetAllcourseQuery(
     {},
-    { refetchOnMountOrArgChange: true }
+    {
+      refetchOnMountOrArgChange: true,
+    }
   );
 
   const [editCourse, { isSuccess, error }] = useEditCourseMutation();

@@ -11,7 +11,6 @@ import { Elements } from "@stripe/react-stripe-js";
 import PayForm from "../Payment/PayForm";
 import { useLoaduserQuery } from "@/redux/features/api/apiSlice";
 import Image from "next/image";
-import client from "../../../public/assets/client-1.jpg";
 import { VscVerifiedFilled } from "react-icons/vsc";
 
 type Props = {
@@ -162,7 +161,7 @@ const CourseDetails: FC<Props> = ({
                     <div className="flex">
                       <div className="w-[50px] h-[50px]">
                         <Image
-                          src={item.user.avatar ? item.user.avatar.url : client}
+                          src={item.user.avatar ? item.user.avatar.url : "https://res.cloudinary.com/dvdh3ihsv/image/upload/v1715780591/z8xntjffog8pjqnppvzk.jpg"}
                           width={50}
                           height={50}
                           alt=""
@@ -194,7 +193,7 @@ const CourseDetails: FC<Props> = ({
                       <div key={index} className="w-full flex 800px:ml-16 my-5">
                         <div className="w-[50px] h-[50px]">
                           <Image
-                            src={i.user.avatar ? i.user.avatar.url : client}
+                            src={i.user.avatar ? i.user.avatar.url : "https://res.cloudinary.com/dvdh3ihsv/image/upload/v1715780591/z8xntjffog8pjqnppvzk.jpg"}
                             width={50}
                             height={50}
                             alt=""
@@ -278,7 +277,7 @@ const CourseDetails: FC<Props> = ({
               <div className="w-full">
                 {stripePromise && clientSecret && (
                   <Elements stripe={stripePromise} options={{ clientSecret }}>
-                    <PayForm setOpen={setOpen} data={data} />
+                    <PayForm setOpen={setOpen} data={data} user={user} />
                   </Elements>
                 )}
               </div>
