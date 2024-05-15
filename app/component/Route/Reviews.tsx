@@ -98,11 +98,11 @@ const Reviews = (props: Props) => {
             see what they say about us
           </h3>
           <br />
-          <p className={styles.label}>
+          {/* <p className={styles.label}>
             Exceptional learning experience! The course content was engaging and
             well-structured, fostering a deeper understanding of complex
             concepts
-          </p>
+          </p> */}
         </div>
         <br />
         <br />
